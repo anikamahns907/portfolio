@@ -1,10 +1,18 @@
 body {
+  height:100vh;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #F0F7EF;  /* fallback for old browsers */
+
+
+}
+.pageTitle{
+  font-size: 21px;
+  margin:0px;
 }
 
 code {
@@ -18,21 +26,46 @@ nav{
   align-items: center;
   flex-direction: row;
   height: 100px;
+
+}
+.linkActive{
+  background-color: #b2dbac;
+  border-radius: 20px;
+}
+button{
+  
+  border-radius: 20px;
+  padding: 4px 9px;
+  border: #b2dbac 1px solid;
+  transition: all 0.7s;
+}
+button:hover{
+  opacity: 0.7;
 }
 .menu {
 width: 40%;
 flex-direction: row;
 justify-content: space-between;
 text-align: center;
+border-top: gray 1px solid;
+padding-top: 20px;
+border-bottom: gray 1px solid;
+padding-bottom: 20px;
 }
 
 .navLinkText{
-  padding: 10px 8px;
+  padding: 10px 15px;
   text-decoration: none;
   color: black;
+  font-size: 23px;
+ 
 }
 
-
+a{
+  text-decoration: none;
+  color: black;
+  font-size: large;
+}
 .hoverGeneral {
   opacity: 1;
   transition: all 0.7s;
@@ -40,14 +73,28 @@ text-align: center;
 
 .hoverGeneral:hover {
   opacity: 0.4;
-
 }
 
 .mainDiv {
   width: 100%;
   
 }
-
+.mainPictures{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.imageDiv{
+  width: 31.3%;
+  margin: 15px 1%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+ 
+}
+.photo{
+  width: 100%;
+}
 .mainMarginDiv {
   width: 60%;
   margin-left: 20%;
@@ -57,11 +104,13 @@ text-align: center;
 
 .introText {
   text-align: center;
+  height: 30px;
 }
 
-.projectImg {
+.projectImg  {
   width: 46%;
   margin: 10px 2%;
+  
 }
 
 .projectGrid {
@@ -75,4 +124,42 @@ text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.projectPopUps {
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.226);
+  margin-top: -172px;
+  align-content: center;
+}
+
+.popupWhiteSquare {
+  width: 46%;
+  height: 50%;
+  background-color: white;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 200px 27%;
+  align-content: center;
+}
+
+.xDiv {
+  width: 100%;
+  text-align: right;
+  padding-top: 10px;
+}
+
+.popUpContent {
+  text-align: center;
+  align-content: center;
+  width: 80%;
+  margin: 0px 10%;
+  text-decoration: none;
+}
+.xText{
+  padding-right: 10px;
+  padding-top: 5px;
+  cursor: pointer;
 }
