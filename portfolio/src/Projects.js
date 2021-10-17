@@ -42,7 +42,7 @@ class Project extends React.Component {
             </div>
             <div className="popUpContent" style={{ display: this.state.secondDescription ? 'block' : 'none', opacity: this.state.secondDescription ? 1 : 0, visibility: this.state.secondDescription ? "visible" : "hidden" }}>
               <h4>PRQR</h4>
-              <i>PRQR site is still in construction. This sight will capture the surreal Puerto Rican reality through different lenses.</i>
+              <i>PRQR site is still in construction. This website allows those around Puerto Rico to scan a qr sticker at specific locations and upload images they've taken there to the website. This way, users can share there retrospective lenses. The free and open-source front-end JavaScript library was used to support the different react states (locations in this case). By implementing the cloudinary platform, I was able to create folders that acted as databases of images stored for each location. This sight will capture the surreal Puerto Rican reality through different lenses. </i>
               <br></br>
               <br></br>
               <br></br>
@@ -50,17 +50,17 @@ class Project extends React.Component {
               <a href="https://github.com/anikamahns907/prqr-gallery" target="_blank" rel="noreferrer"  > GO TO PRQR </a>
             </div>
             <div className="popUpContent" style={{ display: this.state.thirdDescription ? 'block' : 'none', opacity: this.state.thirdDescription ? 1 : 0, visibility: this.state.thirdDescription ? "visible" : "hidden" }}>
-              <h4>OBAMA SAID</h4>
-              <i>A Python bot that webscrapes Obama's words and likes all his posts on Instagram</i>
+              <h4>AI FACE GENERATOR</h4>
+              <i>Using the google colab platform for executing arbitrary python code, I utilized Generative Adversial Networking (GAN) to generate "fake" images of my face. The GAN uses systems of a Generator G(x) and a Discriminator D(x). The Generator takes in a pool of real images and produces new examples that the Discriminator is trained to differentiate between real and fake images. Eventually, the discriminator is trained to the point where "fake" images that are very alike in the nature of the real images are generated. With an epoch of 1000, the GAN produced "fake" abstract and fascinating images of my face. </i>
               <br></br>
               <br></br>
               <br></br>
               <br></br>
-              <a href="https://github.com/anikamahns907/Obama-Said..." target="_blank" rel="noreferrer"  > GO TO OBAMA SAID </a>
+              <a href="https://github.com/anikamahns907/Obama-Said..." target="_blank" rel="noreferrer"  > GO TO AI Face  SAID </a>
             </div>
             <div className="popUpContent" style={{ display: this.state.fourthDescription ? 'block' : 'none', opacity: this.state.fourthDescription ? 1 : 0, visibility: this.state.fourthDescription ? "visible" : "hidden" }}>
               <h4>STUDY BOT</h4>
-              <i>Study bot takes various study qoutes and sends a daily question to my phone. I implemented this bot to study for my AP government test. </i>
+              <i>Dicovering new ways to study, I created javascript code to develop a sms bot that sends daily questions to my phone. Through a database of questions and answers, the coded bot was able to send a question and detect if the texted response (from my phone) was correct. The code implemented algorithims to ensure that this habitual text was distinct, and of course factored in to my understanding of my Ap government course.</i>
               <br></br>
               <br></br>
               <br></br>
