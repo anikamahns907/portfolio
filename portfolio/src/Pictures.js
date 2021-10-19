@@ -44,6 +44,8 @@ class Pictures extends React.Component {
             //created a center div for introduction
             <div className="mainDiv">
                 <div className="mainMarginDiv">
+                    <i>Living this nomadic lifestyle has been feral, intriguing, and surreal.</i>
+                    <br/><br/><br/><br/>
 
                     <div className="locationButtonDiv">
                         <button style={{background: this.state.location === "ALASKA" ? "#b2dbac" : "transparent"}} onClick={() => this.changeLocation("ALASKA")}>ALASKA</button>
