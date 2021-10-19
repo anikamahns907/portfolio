@@ -47,7 +47,7 @@ class Project extends React.Component {
               <h4>AI FACE GENERATOR</h4>
               <i>Using the google colab platform for executing arbitrary python code, I utilized Generative Adversial Networking (GAN) to generate "fake" images of my face. The GAN uses systems of a Generator G(x) and a Discriminator D(x). The Generator takes in a pool of real images and produces new examples that the Discriminator is trained to differentiate between real and fake images. Eventually, the discriminator is trained to the point where "fake" images that are very alike in the nature of the real images are generated. With an epoch of 1000, the GAN produced "fake" abstract and fascinating images of my face. </i>
               <br/><br/><br/><br/>
-              <a href="https://colab.research.google.com/drive/1Imh6NHq8ELFB8i_uqTFc24Ugab8dFOTT" target="_blank" rel="noreferrer"  > GO TO AI Face  SAID </a>
+              <a href="https://colab.research.google.com/drive/1Imh6NHq8ELFB8i_uqTFc24Ugab8dFOTT" target="_blank" rel="noreferrer"  > GO TO AI FACE GAN </a>
             </div>
             <div className="popUpContent" style={{ display: this.state.fourthDescription ? 'block' : 'none', opacity: this.state.fourthDescription ? 1 : 0, visibility: this.state.fourthDescription ? "visible" : "hidden" }}>
               <h4>STUDY BOT</h4>
@@ -66,6 +66,7 @@ class Project extends React.Component {
             <img src={aiface} className="projectImg hoverGeneral" onClick={() => this.setState({ popUpActive: true, thirdDescription: true })} alt="ai face "></img>
             <img src={studybot} className="projectImg hoverGeneral" onClick={() => this.setState({ popUpActive: true, fourthDescription: true })} alt="study bot "></img>
           </div>
+          <br/><br/><br/><br/><br/><br/>
         </div>
       </div>
     );

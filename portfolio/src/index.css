@@ -122,8 +122,10 @@ a{
 
 .projectGrid {
   width: 100%;
+  height: 60%;
   display: flex;
   flex-wrap: wrap;
+  margin: 2% 0%;
 }
 
 .locationButtonDiv {
@@ -134,12 +136,13 @@ a{
 }
 
 .projectPopUps {
+  position: fixed; /*position: fixed;*/
+   top: 0;
+   left: 0;
   width: 100%;
   height: 100%;
   z-index: 15;
-  position: fixed;
   background: rgba(0, 0, 0, 0.226);
-  margin-top: -172px;
   align-content: center;
 }
 

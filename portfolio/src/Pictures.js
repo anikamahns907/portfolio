@@ -54,6 +54,7 @@ class Pictures extends React.Component {
                         <button style={{background: this.state.location === "TOKYO" ? "#b2dbac" : "transparent"}} onClick={() => this.changeLocation("TOKYO")}>TOKYO</button>
                         <button style={{background: this.state.location === "PUERTO RICO" ? "#b2dbac" : "transparent"}} onClick={() => this.changeLocation("PUERTO RICO")}>PUERTO RICO</button>
                     </div>
+                    <br/><br/><br/>
 
 
      
