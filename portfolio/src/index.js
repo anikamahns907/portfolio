@@ -14,7 +14,7 @@ ReactDOM.render(
       <center className="introText" >
         Throughout the past 17 years, my passion for computer science and photography have profoundly developed. Allocating these passions, I have coded this portfolio using React.JS, Cloudinary, Netlify, Virtual Studio Code, and other platforms. Clicking through, programmed projects and images throughout my five moves, each holding an unique perspective, are found.
       </center>
-      <img src = {transparent} style={{width: 500, height: 100}}></img>
+      <img src = {transparent} style={{width: 500, height: 100}} alt = "icon"></img>
 
       <nav>
 
