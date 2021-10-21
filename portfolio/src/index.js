@@ -9,7 +9,7 @@ import Particles from 'react-particles-js';
 
 var s = {
   particles: {
-    number: { value: 50, density: { enable: true, value_area: 300 } },
+    number: { value: 10, density: { enable: true, value_area: 300 } },
     color: { value: "#0C0800" },
 
     opacity: {
@@ -24,7 +24,7 @@ var s = {
     },
     line_linked: {
       enable: true,
-      distance: 100,
+      distance: 300,
       color: "#0C0800",
       opacity: 0.5,
       width: 0.5,
@@ -74,7 +74,7 @@ ReactDOM.render(
         <br />
 
         <center className="introText" >
-          Throughout the past 17 years, I have pursued my passions in computer science and photography. To centralize these pursuits I have created this portfolio using Javascript (React.js), Cloudinary, and Netlify (see the code here: https://github.com/anikamahns907). In the projects tab, click on each tile to learn more/see the project.In the photos tab, see the photos from each location I have lived in. I hope you enjoy: )
+          Throughout the past 17 years, I have pursued my passions in computer science and photography. To centralize these pursuits I have created this portfolio using Javascript (React.js), Cloudinary, and Netlify (see the code here: <a href="https://github.com/anikamahns907" target="_blank" className = "hoverGeneral" rel="noreferrer" > GitHub</a>). In the projects tab, click on each tile to learn more/see the project.In the photos tab, see the photos from each location I have lived in. I hope you enjoy: )
         </center>
 
         <nav>
