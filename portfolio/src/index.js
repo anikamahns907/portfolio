@@ -74,7 +74,7 @@ ReactDOM.render(
         <br />
 
         <center className="introText" >
-          Throughout the past 17 years, I have pursued my passions in computer science and photography. To centralize these pursuits I have created this portfolio using Javascript (React.js), Cloudinary, and Netlify (see the code here: https://github.com/anikamahns907). In the projects tab, click on each tile to learn more/see the project.In the photos tab, see the photos from each location I have lived in.I hope you enjoy: )
+          Throughout the past 17 years, I have pursued my passions in computer science and photography. To centralize these pursuits I have created this portfolio using Javascript (React.js), Cloudinary, and Netlify (see the code here: https://github.com/anikamahns907). In the projects tab, click on each tile to learn more/see the project.In the photos tab, see the photos from each location I have lived in. I hope you enjoy: )
         </center>
 
         <nav>
