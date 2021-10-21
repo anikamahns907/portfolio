@@ -9,7 +9,7 @@ import Particles from 'react-particles-js';
 
 var s = {
   particles: {
-    number: { value: 30, density: { enable: true, value_area: 300 } },
+    number: { value: 50, density: { enable: true, value_area: 300 } },
     color: { value: "#0C0800" },
 
     opacity: {
@@ -18,20 +18,20 @@ var s = {
       anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
     },
     size: {
-      value: 3,
+      value: 10,
       random: true,
       anim: { enable: false, speed: 10, size_min: 0.1, sync: false },
     },
     line_linked: {
       enable: true,
-      distance: 150,
+      distance: 100,
       color: "#0C0800",
-      opacity: 0.3,
-      width: 1,
+      opacity: 0.5,
+      width: 0.5,
     },
     move: {
       enable: true,
-      speed: 0.75,
+      speed: 1,
       direction: "none",
       random: false,
       straight: false,
@@ -65,41 +65,41 @@ ReactDOM.render(
     <div>
       <Particles className=" particles" params={s} />
       <div className="cornerDiv">
-          <p>Anika Mahns <br/> Toa Alta, Puerto Rico</p>
-          
-          </div>
+        <p>Anika Mahns <br /> Toa Alta, Puerto Rico</p>
+
+      </div>
       <div style={{ textAlign: "center" }}>
 
-          <br/>        <br/>
-          <br/>
+        <br />        <br />
+        <br />
 
-          <center className="introText" >
-          Throughout the past 17 years, my passion for computer science and photography have profoundly developed.Allocating these passions, I have coded this portfolio using React.JS, Cloudinary, Netlify, Virtual Studio Code, and other platforms.Clicking through, programmed projects and images throughout my five moves, each holding an unique perspective, are found.
-          </center>
+        <center className="introText" >
+          Throughout the past 17 years, I have pursued my passions in computer science and photography. To centralize these pursuits I have created this portfolio using Javascript (React.js), Cloudinary, and Netlify (see the code here: https://github.com/anikamahns907). In the projects tab, click on each tile to learn more/see the project.In the photos tab, see the photos from each location I have lived in.I hope you enjoy: )
+        </center>
 
-          <nav>
+        <nav>
 
           <div className="menu" >
-          <NavLink exact={true} className="navLinkText hoverGeneral" activeClassName='linkActive' to="/">
-          PROJECTS
-          </NavLink>
-          <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/pictures">
-          PICTURES
-          </NavLink>
+            <NavLink exact={true} className="navLinkText hoverGeneral" activeClassName='linkActive' to="/">
+              PROJECTS
+            </NavLink>
+            <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/pictures">
+              PICTURES
+            </NavLink>
           </div>
-          </nav>
-          <br /> <br />
-          <Switch>
+        </nav>
+        <br /> <br />
+        <Switch>
           <Route path="/pictures">
-          <Pictures />
+            <Pictures />
           </Route>
           <Route path="/">
-          <Projects />
+            <Projects />
           </Route>
-          </Switch>
-          </div>
-        </div>
+        </Switch>
+      </div>
+    </div>
 
-      </Router>,
-      document.getElementById("root")
-      );
+  </Router>,
+  document.getElementById("root")
+);
