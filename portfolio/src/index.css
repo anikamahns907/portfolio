@@ -1,3 +1,12 @@
+@viewport {
+  width: device-width;
+  zoom: 1;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
 body {
   height:100vh;
   margin: 0;
@@ -197,4 +206,25 @@ canvas {
   margin-top: none;
   text-decoration: none;
   font-size: 15px;
+}
+
+
+@media screen and (max-width: 960px) {
+  .popupWhiteSquare {
+    width: 80%;
+    height: 80%;
+    margin: 50px 10%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .menu {
+    width: 60%;
+  }
+  
+}
+@media screen and (max-width: 600px) {
+  .popUpContent {
+   width: 90%;
+    margin: 0px 5%;
+}
 }
