@@ -7,10 +7,10 @@ class Home extends React.Component {
     return (
         <div className="mainDiv">
         <div className="content">
+        <p className="name">Anika Mahns</p>
 
           <img src={myFaceImage} alt="My Face" className="my-face-image" />
 
-          <h1>Anika Mahns</h1>
   <p>
     This portfolio offers a glimpse into my journey, experiences, and the exciting projects I've crafted through my love for coding and technology.
   </p>
