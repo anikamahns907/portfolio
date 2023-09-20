@@ -1,3 +1,4 @@
+
 import React from "react"; //imports react
 import axios from 'axios';
 
@@ -48,11 +49,11 @@ class Pictures extends React.Component {
                     <br/><br/><br/><br/>
 
                     <div className="locationButtonDiv">
-                        <button style={{background: this.state.location === "ALASKA" ? "#b2dbac" : "transparent"}} onClick={() => this.changeLocation("ALASKA")}>ALASKA</button>
-                        <button style={{background: this.state.location === "KENT ISLAND" ? "#b2dbac" : "transparent"}} onClick={() => this.changeLocation("KENT ISLAND")}>KENT ISLAND</button>
-                        <button style={{background: this.state.location === "URBANA" ? "#b2dbac" : "transparent"}} onClick={() => this.changeLocation("URBANA")}>URBANA</button>
-                        <button style={{background: this.state.location === "TOKYO" ? "#b2dbac" : "transparent"}} onClick={() => this.changeLocation("TOKYO")}>TOKYO</button>
-                        <button style={{background: this.state.location === "PUERTO RICO" ? "#b2dbac" : "transparent"}} onClick={() => this.changeLocation("PUERTO RICO")}>PUERTO RICO</button>
+                        <button style={{background: this.state.location === "ALASKA" ? "#000" : "transparent", color: this.state.location === "ALASKA" ? "#FFFFFF" : "#000"}} onClick={() => this.changeLocation("ALASKA")}>ALASKA</button>
+                        <button style={{background: this.state.location === "KENT ISLAND" ? "#000" : "transparent", color: this.state.location === "KENT ISLAND" ? "#FFFFFF" : "#000"}} onClick={() => this.changeLocation("KENT ISLAND")}>KENT ISLAND</button>
+                        <button style={{background: this.state.location === "URBANA" ? "#000" : "transparent", color: this.state.location === "URBANA" ? "#FFFFFF" : "#000"}} onClick={() => this.changeLocation("URBANA")}>URBANA</button>
+                        <button style={{background: this.state.location === "TOKYO" ? "#000" : "transparent", color: this.state.location === "TOKYO" ? "#FFFFFF" : "#000"}} onClick={() => this.changeLocation("TOKYO")}>TOKYO</button>
+                        <button style={{background: this.state.location === "PUERTO RICO" ? "#000" : "transparent", color: this.state.location === "PUERTO RICO" ? "#FFFFFF" : "#000"}} onClick={() => this.changeLocation("PUERTO RICO")}>PUERTO RICO</button>
                     </div>
                     <br/><br/><br/>
 
