@@ -10,9 +10,9 @@ class Home extends React.Component {
 
           <img src={myFaceImage} alt="My Face" className="my-face-image" />
 
-          <h1>Welcome to My Portfolio!</h1>
+          <h1>Anika Mahns</h1>
   <p>
-    I'm Anika Mahns, a Computer Science enthusiast and a passionate explorer of life. This portfolio offers a glimpse into my journey, experiences, and the exciting projects I've crafted through my love for coding and technology.
+    This portfolio offers a glimpse into my journey, experiences, and the exciting projects I've crafted through my love for coding and technology.
   </p>
   <p>
     Having traversed the globe and embraced diverse cultures, I've broadened my horizons and learned invaluable lessons in empathy, adaptability, and understanding. Currently pursuing a ScB in Applied Mathematics-Computer Science at Brown University, I'm dedicated to pushing the boundaries of innovation and problem-solving.
