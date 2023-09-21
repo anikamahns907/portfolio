@@ -1,11 +1,16 @@
 import React from "react";
-import myFaceImage from './faceme.JPG';
+import myFaceImage from './faceme.jpg';
 import './index.css';
+
 
 class Home extends React.Component {
   render() {
+   
     return (
+
         <div className="mainDiv">
+                  
+
         <div className="content">
         <p className="name">Anika Mahns</p>
 
@@ -50,5 +55,4 @@ class Home extends React.Component {
     );
   }
 }
-
 export default Home;
