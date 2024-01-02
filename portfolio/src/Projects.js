@@ -1,5 +1,5 @@
 
-import React from "react"; //imports react
+import React from "react"; 
 import fbla from './fblaSC.jpg';
 import prqr from './prqrSC.jpg';
 import aiface from './aifaceSC.jpg';
