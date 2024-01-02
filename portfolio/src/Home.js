@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from "react";
-import myFaceImage from './faceme.jpg';
+import myFaceImage from './faceme.JPG';
 import './index.css';
 import { Container, Engine } from "tsparticles-engine";
 import Particles from "react-particles";
