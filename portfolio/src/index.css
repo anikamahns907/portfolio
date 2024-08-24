@@ -8,61 +8,53 @@
 }
 
 body {
-  height:100vh;
+  height: 100vh;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background:  #FFFAFA
-
-
-;  /* fallback for old browsers */
-
-
+  background: #FFFAFA; /* fallback for old browsers */
 }
 
-
-
-.pageTitle{
+.pageTitle {
   font-size: 21px;
-  margin:0px;
+  margin: 0px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-nav{
+
+nav {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   height: 100px;
-
 }
-.linkActive{
+
+.linkActive {
   border-radius: 20px;
 }
-/* ... Your existing CSS ... */
 
 /* Modify the button styles */
 button {
   border-radius: 5px;
-  padding: 4px 9px;
+  padding: 8px 16px;
   border: 1px solid #000; /* Border color */
   background: transparent; /* Transparent background */
   color: black; /* Text color */
   transition: all 0.7s;
+  cursor: pointer;
 }
 
 button:hover {
   opacity: 0.7;
 }
-
-/* ... Your existing CSS ... */
 
 .menu {
   width: 70%;
@@ -73,37 +65,36 @@ button:hover {
   padding-bottom: 20px;
 }
 
-
-.navLinkText{
+.navLinkText {
   padding: 10px 15px;
   text-decoration: none;
   color: black;
   margin-left: 20px;
   margin-right: 20px;
   font-size: 23px;
- 
 }
 
-.name{
+.name {
   padding: 10px 15px;
   text-decoration: none;
   color: black;
   margin-left: 20px;
   margin-right: 20px;
   font-size: 40px;
- 
 }
+
 .butterfly {
   width: 50%;
   height: 30%;
   text-align: left;
 }
 
-a{
+a {
   text-decoration: none;
   color: black;
   font-size: large;
 }
+
 .hoverGeneral {
   opacity: 1;
   transition: all 0.7s;
@@ -113,8 +104,6 @@ a{
   opacity: 0.4;
 }
 
-/* ... Your existing CSS ... */
-
 .mainDiv {
   width: 100%;
   display: flex;
@@ -122,43 +111,50 @@ a{
   align-items: center;
   flex-direction: column;
   margin-top: -50px;
-
 }
 
-
-
-.mainPictures{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.imageDiv{
-  width: 31.3%;
-  margin: 15px 1%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
- 
-}
-.photo{
-  width: 100%;
-}
 .mainMarginDiv {
   width: 60%;
-  margin-left: 20%;
-  margin-right:20%;
+  margin: 0 auto;
   text-align: center;
+}
+
+.locationButtonDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.mainPictures {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.imageDiv {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center the image vertically */
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* Ensures the image covers the entire area without distortion */
 }
 
 .generalFormat {
   margin: 100px 20%;
 }
 
-
-.projectImg  {
+.projectImg {
   width: 46%;
   margin: 10px 2%;
-  
 }
 
 .projectGrid {
@@ -169,17 +165,10 @@ a{
   margin: 2% 0%;
 }
 
-.locationButtonDiv {
-  width:100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
 .projectPopUps {
   position: fixed; /*position: fixed;*/
-   top: 0;
-   left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   z-index: 15;
@@ -209,7 +198,8 @@ a{
   margin: 0px 10%;
   text-decoration: none;
 }
-.xText{
+
+.xText {
   padding-right: 10px;
   padding-top: 5px;
   cursor: pointer;
@@ -220,17 +210,13 @@ a{
   font-style: italic;
 }
 
-
-
-
 canvas {
   width: vw;
   height: vh;
   position: fixed;
-  Z-index: -1;
+  z-index: -1;
   opacity: 2;
 }
-
 
 .cornerDiv {
   position: absolute;
@@ -240,7 +226,6 @@ canvas {
   font-size: 15px;
 }
 
-
 @media screen and (max-width: 960px) {
   .popupWhiteSquare {
     width: 80%;
@@ -248,19 +233,19 @@ canvas {
     margin: 50px 10%;
   }
 }
+
 @media screen and (max-width: 600px) {
   .menu {
     width: 60%;
   }
-  
-}
-@media screen and (max-width: 600px) {
-  .popUpContent {
-   width: 90%;
-    margin: 0px 5%;
-}
 }
 
+@media screen and (max-width: 600px) {
+  .popUpContent {
+    width: 90%;
+    margin: 0px 5%;
+  }
+}
 
 .menu-bar {
   background: transparent; /* Transparent background */
@@ -270,17 +255,14 @@ canvas {
   justify-content: space-between;
   padding: 10px 20px;
   margin-top: 20px; /* Adjust this value to add more space */
-
 }
-
-
 
 .content {
   text-align: center;
   max-width: 800px;
-margin-bottom: 90px;
-border-bottom: 1px solid black; /* Increase the border thickness here */
-padding-bottom: 20px;
+  margin-bottom: 90px;
+  border-bottom: 1px solid black; /* Increase the border thickness here */
+  padding-bottom: 20px;
 }
 
 .my-face-image {
@@ -288,13 +270,6 @@ padding-bottom: 20px;
   height: 200px; /* Adjust the height as needed */
   border-radius: 50%;
   margin-bottom: 70px;
-  box-shadow: 
-    0 0 0 3px #FFFFFF, /* white  */
-    0 0 0 8px #B2DBFF, /* Lighter blue */
-    0 0 0 12px #83CFFD, /* Slightly darker blue */
-    0 0 0 13px #5FB7FA, /* Deeper blue */
-    0 0 0 15px #3D9EF6;/* Darkest blue */
-  
-
-
+  border: 8px solid #000000; /* Solid black border */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Slight shadow for a professional look */
 }

@@ -1,81 +1,79 @@
+import React, { Component } from "react";
+import axios from "axios";
 
-import React from "react"; //imports react
-import axios from 'axios';
+class Pictures extends Component {
+  state = {
+    location: "ALASKA",
+    content: [],
+  };
 
+  componentDidMount() {
+    this.getLinks("ALASKA");
+  }
 
-class Pictures extends React.Component {
+  getLinks = (locationName) => {
+    axios
+      .get(
+        `https://k7rdqegg4c.execute-api.us-east-1.amazonaws.com/default/anika-portfolio?locationId=${locationName}`
+      )
+      .then((response) => {
+        const imageUrls = response.data.resources.map((resource) => resource.secure_url);
+        this.setState({ location: locationName, content: imageUrls });
+      })
+      .catch((error) => {
+        console.error("Error fetching image data:", error);
+      });
+  };
 
-    state = { location: "ALASKA", content: [], }
-    componentDidMount() {
-        this.getLinks("ALASKA");
-    }
-    getLinks(locationNameFromButton) {
-        var self = this;
-        axios
-            .get(
-                "https://k7rdqegg4c.execute-api.us-east-1.amazonaws.com/default/anika-portfolio?locationId=" +
-                locationNameFromButton
-            )
-            .then(function (response) {
-                var temp = [];
-                var imageData = response.data.resources;
-                for (var i = 0; i < imageData.length; i++) {
-                    temp.push(imageData[i].secure_url);
-                }
-                console.log(temp);
+  changeLocation = (locationName) => {
+    this.setState({ location: "loading..." }, () => {
+      this.getLinks(locationName);
+    });
+  };
 
-                self.setState({ location: locationNameFromButton, content: temp });
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
-    }
-    changeLocation(locationNameFromButton) {
-        this.setState({ location: "loading..." }, () => { this.getLinks(locationNameFromButton); })
+  render() {
+    const { location, content } = this.state;
 
-    }
+    return (
+      <div className="mainDiv">
+        <div className="mainMarginDiv">
+        <p className="nomadic-text">Living this nomadic lifestyle has been feral, intriguing, and surreal.</p>
+        <br />
+          <br />
+          <br />
+          <br />
 
+          <div className="locationButtonDiv">
+            {["ALASKA", "KENT ISLAND", "URBANA", "TOKYO", "PUERTO RICO"].map((place) => (
+              <button
+                key={place}
+                style={{
+                  background: location === place ? "#000" : "transparent",
+                  color: location === place ? "#FFFFFF" : "#000",
+                }}
+                onClick={() => this.changeLocation(place)}
+              >
+                {place}
+              </button>
+            ))}
+          </div>
 
-    render() {
-        return (
-            //created a center div for introduction
-            <div className="mainDiv">
-                <div className="mainMarginDiv">
-                    <i>Living this nomadic lifestyle has been feral, intriguing, and surreal.</i>
-                    <br/><br/><br/><br/>
+          <br />
+          <br />
+          <br />
 
-                    <div className="locationButtonDiv">
-                        <button style={{background: this.state.location === "ALASKA" ? "#000" : "transparent", color: this.state.location === "ALASKA" ? "#FFFFFF" : "#000"}} onClick={() => this.changeLocation("ALASKA")}>ALASKA</button>
-                        <button style={{background: this.state.location === "KENT ISLAND" ? "#000" : "transparent", color: this.state.location === "KENT ISLAND" ? "#FFFFFF" : "#000"}} onClick={() => this.changeLocation("KENT ISLAND")}>KENT ISLAND</button>
-                        <button style={{background: this.state.location === "URBANA" ? "#000" : "transparent", color: this.state.location === "URBANA" ? "#FFFFFF" : "#000"}} onClick={() => this.changeLocation("URBANA")}>URBANA</button>
-                        <button style={{background: this.state.location === "TOKYO" ? "#000" : "transparent", color: this.state.location === "TOKYO" ? "#FFFFFF" : "#000"}} onClick={() => this.changeLocation("TOKYO")}>TOKYO</button>
-                        <button style={{background: this.state.location === "PUERTO RICO" ? "#000" : "transparent", color: this.state.location === "PUERTO RICO" ? "#FFFFFF" : "#000"}} onClick={() => this.changeLocation("PUERTO RICO")}>PUERTO RICO</button>
-                    </div>
-                    <br/><br/><br/>
-
-
-     
-                    <div className="mainPictures">
-                        {this.state.location === "loading..." ? null : this.state.content.map((picture, i) => {
-                            return (
-                                <div className="imageDiv" key={i}>
-                                    <div> <img
-                                        src={picture}
-                                        alt="alt"
-                                        className="photo"
-                                    />
-                                    </div></div>
-                            );
-                        })}
-                    </div>
+          <div className="mainPictures">
+            {location !== "loading..." &&
+              content.map((picture, index) => (
+                <div className="imageDiv" key={index}>
+                  <img src={picture} alt="Location" className="photo" />
                 </div>
-            </div>
-        );
-    }
+              ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Pictures;
