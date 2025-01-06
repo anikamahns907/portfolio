@@ -37,6 +37,8 @@ class Pictures extends Component {
     return (
       <div className="mainDiv">
         <div className="mainMarginDiv">
+        <br />
+
         <p className="nomadic-text">Living this nomadic lifestyle has been feral, intriguing, and surreal.</p>
         <br />
           <br />

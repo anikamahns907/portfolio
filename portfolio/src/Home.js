@@ -6,12 +6,12 @@ import { loadSlim } from "tsparticles-slim";
 
 const Home = () => {
   const particlesInit = useCallback(async (engine) => {
-    console.log(engine);
+    console.log("Particles initialized:", engine);
     await loadSlim(engine);
   }, []);
 
   const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
+    console.log("Particles container loaded:", container);
   }, []);
 
   return (
@@ -22,40 +22,23 @@ const Home = () => {
         init={particlesInit}
         loaded={particlesLoaded}
         options={{
-          background: {
-            color: {
-              value: "white",
-            },
-          },
+          background: { color: { value: "white" } },
           fpsLimit: 120,
           interactivity: {
             events: {
-              onClick: {
-                enable: true,
-                mode: "push",
-              },
-              onHover: {
-                enable: true,
-                mode: "repulse",
-              },
+              onClick: { enable: true, mode: "push" },
+              onHover: { enable: true, mode: "repulse" },
               resize: true,
             },
             modes: {
-              push: {
-                quantity: 4,
-              },
-              repulse: {
-                distance: 190,
-                duration: 0.4,
-              },
+              push: { quantity: 4 },
+              repulse: { distance: 190, duration: 0.4 },
             },
           },
           particles: {
-            color: {
-              value: "#000000", // Set particles color to black
-            },
+            color: { value: "#000000" }, // Black particles
             links: {
-              color: "#000000", // Set link color to black
+              color: "#000000",
               distance: 200,
               enable: true,
               opacity: 0.5,
@@ -64,29 +47,16 @@ const Home = () => {
             move: {
               direction: "none",
               enable: true,
-              outModes: {
-                default: "bounce",
-              },
-              random: false,
+              outModes: { default: "bounce" },
               speed: 3,
-              straight: false,
             },
             number: {
-              density: {
-                enable: true,
-                area: 1000,
-              },
+              density: { enable: true, area: 1000 },
               value: 100,
             },
-            opacity: {
-              value: 0.5,
-            },
-            shape: {
-              type: "circle",
-            },
-            size: {
-              value: { min: 0.5, max: 2 }, // Smaller particle size
-            },
+            opacity: { value: 0.5 },
+            shape: { type: "circle" },
+            size: { value: { min: 0.5, max: 2 } }, // Smaller particle size
           },
           detectRetina: true,
         }}
@@ -99,9 +69,9 @@ const Home = () => {
           height: "100%",
         }}
       />
-      <div className="content" style={{ position: "relative", zIndex: 1 }}>
+      <div className="content">
         <p className="name">Anika Mahns</p>
-        <img src={myFaceImage} alt="My Face" className="my-face-image" />
+        <img src={myFaceImage} alt="Anika Mahns" className="my-face-image" />
         <p>
           This portfolio showcases my journey and the projects I've crafted through my passion for coding and technology. Having lived in diverse cultures, I’ve learned invaluable lessons in empathy and adaptability. As a ScB candidate in Applied Mathematics-Computer Science at Brown, I’m dedicated to innovation and problem-solving.
         </p>
