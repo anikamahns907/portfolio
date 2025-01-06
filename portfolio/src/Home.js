@@ -1,74 +1,40 @@
 import React, { useCallback } from "react";
-import myFaceImage from './faceme.JPG';
-import './index.css';
 import Particles from "react-particles";
 import { loadSlim } from "tsparticles-slim";
+import myFaceImage from "./faceme.JPG"; // Update the path if needed
+import "./index.css";
 
 const Home = () => {
   const particlesInit = useCallback(async (engine) => {
-    console.log("Particles initialized:", engine);
-    await loadSlim(engine);
-  }, []);
-
-  const particlesLoaded = useCallback(async (container) => {
-    console.log("Particles container loaded:", container);
+    await loadSlim(engine); // Load particles-slim for better performance
   }, []);
 
   return (
     <div className="mainDiv">
+      {/* Particles Background */}
       <Particles
         className="particles"
         id="tsparticles"
         init={particlesInit}
-        loaded={particlesLoaded}
         options={{
-          background: { color: { value: "white" } },
-          fpsLimit: 120,
-          interactivity: {
-            events: {
-              onClick: { enable: true, mode: "push" },
-              onHover: { enable: true, mode: "repulse" },
-              resize: true,
-            },
-            modes: {
-              push: { quantity: 4 },
-              repulse: { distance: 190, duration: 0.4 },
-            },
-          },
+          background: { color: { value: "#fdfdfd" } }, // Light background
           particles: {
-            color: { value: "#000000" }, // Black particles
+            color: { value: "#0070f3" }, // Blue particles
             links: {
-              color: "#000000",
-              distance: 200,
+              color: "#0070f3",
+              distance: 150,
               enable: true,
               opacity: 0.5,
               width: 1,
             },
-            move: {
-              direction: "none",
-              enable: true,
-              outModes: { default: "bounce" },
-              speed: 3,
-            },
-            number: {
-              density: { enable: true, area: 1000 },
-              value: 100,
-            },
-            opacity: { value: 0.5 },
-            shape: { type: "circle" },
-            size: { value: { min: 0.5, max: 2 } }, // Smaller particle size
+            move: { enable: true, speed: 1 },
+            size: { value: 1 },
+            number: { density: { enable: true, area: 800 }, value: 50 },
           },
-          detectRetina: true,
-        }}
-        style={{
-          position: "fixed",
-          zIndex: -1,
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
         }}
       />
+
+      {/* Main Content */}
       <div className="content">
         <p className="name">Anika Mahns</p>
         <img src={myFaceImage} alt="Anika Mahns" className="my-face-image" />

@@ -1,275 +1,273 @@
-@viewport {
-  width: device-width;
-  zoom: 1;
-}
-
-@-ms-viewport {
-  width: device-width;
-}
-
+/* Base styles */
 body {
-  height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background: #f4f4f6; /* Soft off-white for a clean background */
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: #FFFAFA; /* fallback for old browsers */
-}
-
-.pageTitle {
-  font-size: 21px;
-  margin: 0px;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-nav {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  height: 100px;
-}
-
-.linkActive {
-  border-radius: 20px;
-}
-
-/* Modify the button styles */
-button {
-  border-radius: 5px;
-  padding: 8px 16px;
-  border: 1px solid #000; /* Border color */
-  background: transparent; /* Transparent background */
-  color: black; /* Text color */
-  transition: all 0.7s;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.7;
-}
-
-.menu {
-  width: 70%;
-  flex-direction: row;
-  justify-content: space-between;
-  text-align: center;
-  border-bottom: 1px solid black; /* Increase the border thickness here */
-  padding-bottom: 20px;
-}
-
-.navLinkText {
-  padding: 10px 15px;
-  text-decoration: none;
-  color: black;
-  margin-left: 20px;
-  margin-right: 20px;
-  font-size: 23px;
-}
-
-.name {
-  padding: 10px 15px;
-  text-decoration: none;
-  color: black;
-  margin-left: 20px;
-  margin-right: 20px;
-  font-size: 40px;
-}
-
-.butterfly {
-  width: 50%;
-  height: 30%;
-  text-align: left;
+  padding: 0;
+  color: #2c2c2c; /* Neutral dark text color */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 a {
   text-decoration: none;
-  color: black;
-  font-size: large;
+  color: inherit;
+  transition: color 0.3s;
 }
 
-.hoverGeneral {
-  opacity: 1;
-  transition: all 0.7s;
+a:hover {
+  color: #555555; /* Medium gray for hover links */
 }
 
-.hoverGeneral:hover {
-  opacity: 0.4;
+button {
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #3a3a3a; /* Charcoal gray for buttons */
+  color: #ffffff; /* White text for contrast */
+  transition: background 0.3s, transform 0.2s;
 }
 
-.mainDiv {
-  width: 100%;
+button:hover {
+  background: #5c5c5c; /* Lighter charcoal gray on hover */
+  transform: translateY(-2px);
+}
+
+/* Navigation styles */
+nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  margin-top: -50px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e0e0e0; /* Light gray border for subtle separation */
+  background: #ffffff; /* Clean white for the navigation bar */
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.mainMarginDiv {
-  width: 60%;
-  margin: 0 auto;
+.navLinkText {
+  margin: 0 15px;
+  font-weight: 500;
+  color: #444444; /* Neutral medium-dark gray text */
+  font-size: 16px;
+}
+
+.navLinkText:hover {
+  color: #3a3a3a; /* Charcoal gray hover color */
+}
+
+/* Home Component Styles */
+.mainDiv {
+  padding: 40px 20px;
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
-.locationButtonDiv {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
+.name {
+  font-size: 2.5rem;
+  font-weight: 700;
   margin-bottom: 20px;
+  color: #3a3a3a; /* Charcoal gray for a bold accent */
 }
 
-.mainPictures {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
+.my-face-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 4px solid #3a3a3a; /* Charcoal gray border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.imageDiv {
-  width: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Center the image vertically */
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #555555; /* Medium gray for body text */
 }
 
-.photo {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  object-fit: cover; /* Ensures the image covers the entire area without distortion */
-}
-
-.generalFormat {
-  margin: 100px 20%;
-}
-
-.projectImg {
-  width: 46%;
-  margin: 10px 2%;
-}
-
-.projectGrid {
-  width: 100%;
-  height: 60%;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 2% 0%;
-}
-
-.projectPopUps {
-  position: fixed; /*position: fixed;*/
+/* Particles background */
+.particles {
+  position: fixed;
+  z-index: -1; /* Ensures particles stay behind all content */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 15;
-  background: rgba(0, 0, 0, 0.226);
-  align-content: center;
+}
+
+/* Project Grid Styles */
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: start;
+  margin-top: 20px;
+}
+
+.projectCard {
+  background: #ffffff; /* Clean white for card backgrounds */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for professionalism */
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Slightly darker shadow on hover */
+}
+
+.projectImg {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #e0e0e0; /* Light gray border */
+}
+
+.projectTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c2c2c; /* Neutral dark gray for titles */
+  margin: 10px 0;
+  padding: 0 10px;
+}
+
+/* Popup styles */
+.projectPopUps {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(44, 44, 44, 0.8); /* Semi-transparent dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.projectPopUps.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .popupWhiteSquare {
-  width: 40%;
-  height: 50%;
-  background-color: white;
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin: 200px 30%;
-  align-content: center;
-}
-
-.xDiv {
-  width: 100%;
-  text-align: right;
-  padding-top: 10px;
-}
-
-.popUpContent {
+  background: #ffffff; /* Clean white popup */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
   text-align: center;
-  align-content: center;
-  width: 80%;
-  margin: 0px 10%;
-  text-decoration: none;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .xText {
-  padding-right: 10px;
-  padding-top: 5px;
-  cursor: pointer;
-}
-
-.introText {
-  margin: 3% 25%;
-  font-style: italic;
-}
-
-canvas {
-  width: vw;
-  height: vh;
-  position: fixed;
-  z-index: -1;
-  opacity: 2;
-}
-
-.cornerDiv {
   position: absolute;
-  margin-left: 10px;
-  margin-top: none;
-  text-decoration: none;
-  font-size: 15px;
+  top: 10px;
+  right: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #555555; /* Medium gray for close icon */
 }
 
-@media screen and (max-width: 960px) {
-  .popupWhiteSquare {
-    width: 80%;
-    height: 80%;
-    margin: 50px 10%;
-  }
+.xText:hover {
+  color: #3a3a3a; /* Charcoal gray hover color */
 }
 
-@media screen and (max-width: 600px) {
-  .menu {
-    width: 60%;
-  }
+/* Pictures Component Styles */
+.nomadic-text {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 30px;
+  color: #555555; /* Medium gray for descriptive text */
 }
 
-@media screen and (max-width: 600px) {
-  .popUpContent {
-    width: 90%;
-    margin: 0px 5%;
-  }
-}
-
-.menu-bar {
-  background: transparent; /* Transparent background */
-  color: black; /* Text color for the buttons */
+/* Location button styles */
+.locationButtonDiv {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.locationButtonDiv button {
+  border: none;
   padding: 10px 20px;
-  margin-top: 20px; /* Adjust this value to add more space */
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #e0e0e0; /* Light gray background */
+  color: #2c2c2c; /* Neutral dark gray text */
+  transition: all 0.3s;
 }
 
-.content {
-  text-align: center;
-  max-width: 800px;
-  margin-bottom: 90px;
-  border-bottom: 1px solid black; /* Increase the border thickness here */
-  padding-bottom: 20px;
+.locationButtonDiv button.active {
+  background: #3a3a3a; /* Charcoal gray for active button */
+  color: #ffffff; /* White text */
 }
 
-.my-face-image {
-  width: 200px; /* Adjust the width as needed */
-  height: 200px; /* Adjust the height as needed */
-  border-radius: 50%;
-  margin-bottom: 70px;
-  border: 8px solid #000000; /* Solid black border */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Slight shadow for a professional look */
+.locationButtonDiv button:hover {
+  background: #5c5c5c; /* Lighter charcoal gray hover color */
+  color: #ffffff;
+}
+
+/* Pictures grid layout */
+.mainPictures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Individual image container */
+.imageDiv {
+  width: 100%;
+  max-width: 250px; /* Ensures pictures do not get too large */
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.imageDiv:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Slightly darker hover shadow */
+}
+
+/* Image styles */
+.photo {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures the picture is scaled without distortion */
+  border-radius: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mainPictures {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .nomadic-text {
+    font-size: 1rem;
+  }
+
+  .imageDiv {
+    max-width: 200px;
+  }
 }
