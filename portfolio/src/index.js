@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
 import Pictures from './Pictures';
 import Projects from './Projects';
 import Home from './Home';
+// import StudyAbroad from './StudyAbroad';
+
 
 ReactDOM.render(
   <Router>
@@ -18,6 +20,9 @@ ReactDOM.render(
             <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/projects">
               PROJECTS
             </NavLink>
+            {/* <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/studyabroad">
+              STUDY ABROAD
+            </NavLink> */}
             <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/pictures">
               PICTURES
             </NavLink>
@@ -31,6 +36,9 @@ ReactDOM.render(
         <Route path="/projects">
           <Projects />
         </Route>
+        {/* <Route path="/studyabroad">
+          <StudyAbroad />
+        </Route> */}
         <Route path="/">
           <Home />
         </Route>

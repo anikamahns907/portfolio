@@ -1,21 +1,22 @@
 /* Base styles */
 body {
   font-family: 'Inter', sans-serif;
-  background: #f4f4f6; /* Soft off-white for a clean background */
+  background: #ffffff;
   margin: 0;
   padding: 0;
-  color: #2c2c2c; /* Neutral dark text color */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  color: #000000;
+  overflow-x: hidden;
+  line-height: 1.5;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: #ffffff;
   transition: color 0.3s;
 }
 
 a:hover {
-  color: #555555; /* Medium gray for hover links */
+  color: #0070f3;
 }
 
 button {
@@ -24,13 +25,13 @@ button {
   font-size: 14px;
   border-radius: 5px;
   cursor: pointer;
-  background: #3a3a3a; /* Charcoal gray for buttons */
-  color: #ffffff; /* White text for contrast */
+  background: #1a1a1a;
+  color: #ffffff;
   transition: background 0.3s, transform 0.2s;
 }
 
 button:hover {
-  background: #5c5c5c; /* Lighter charcoal gray on hover */
+  background: #2d2d2d;
   transform: translateY(-2px);
 }
 
@@ -39,82 +40,167 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
-  border-bottom: 1px solid #e0e0e0; /* Light gray border for subtle separation */
-  background: #ffffff; /* Clean white for the navigation bar */
+  padding: 25px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.98);
   position: sticky;
   top: 0;
   z-index: 10;
+  backdrop-filter: blur(10px);
 }
 
 .navLinkText {
-  margin: 0 15px;
+  margin: 0 20px;
   font-weight: 500;
-  color: #444444; /* Neutral medium-dark gray text */
-  font-size: 16px;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .navLinkText:hover {
-  color: #3a3a3a; /* Charcoal gray hover color */
+  color: #0070f3;
 }
 
 /* Home Component Styles */
 .mainDiv {
-  padding: 40px 20px;
-  text-align: center;
-  max-width: 1200px;
+  padding: 0;
+  text-align: left;
+  max-width: 1400px;
   margin: 0 auto;
   box-sizing: border-box;
+  position: relative;
+  min-height: 100vh;
+}
+
+.hero-section {
+  padding: 100px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.hero-text {
+  max-width: 600px;
 }
 
 .name {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #3a3a3a; /* Charcoal gray for a bold accent */
+  font-size: 4rem;
+  font-weight: 800;
+  color: #000000;
+  margin: 0 0 20px 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
-.my-face-image {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-  border: 4px solid #3a3a3a; /* Charcoal gray border */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #0070f3;
+  margin: 0 0 30px 0;
 }
 
-.content {
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
+.hero-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #000000;
+  margin-bottom: 40px;
+  max-width: 500px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.cta-button {
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: 500;
   font-size: 1rem;
-  color: #555555; /* Medium gray for body text */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button.primary {
+  background: #0070f3;
+  color: white;
+}
+
+.cta-button.primary:hover {
+  background: #0051a8;
+  transform: translateY(-2px);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: #0070f3;
+  border: 2px solid #0070f3;
+}
+
+.cta-button.secondary:hover {
+  background: rgba(0, 112, 243, 0.1);
+  transform: translateY(-2px);
+}
+
+.hero-image {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.chaos-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.hero-image:hover .chaos-image {
+  transform: scale(1.05);
 }
 
 /* Particles background */
 .particles {
   position: fixed;
-  z-index: -1; /* Ensures particles stay behind all content */
+  z-index: 0;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 0.4;
 }
 
 /* Project Grid Styles */
 .projectGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
   justify-items: center;
   align-items: start;
   margin-top: 20px;
-}
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+} 
 
 .projectCard {
-  background: #ffffff; /* Clean white for card backgrounds */
+  background: #1a1a1a;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for professionalism */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -123,20 +209,20 @@ nav {
 
 .projectCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Slightly darker shadow on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .projectImg {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-bottom: 1px solid #e0e0e0; /* Light gray border */
+  border-bottom: 1px solid #2d2d2d;
 }
 
 .projectTitle {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #2c2c2c; /* Neutral dark gray for titles */
+  color: #ffffff;
   margin: 10px 0;
   padding: 0 10px;
 }
@@ -148,7 +234,7 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(44, 44, 44, 0.8); /* Semi-transparent dark overlay */
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -163,14 +249,15 @@ nav {
 }
 
 .popupWhiteSquare {
-  background: #ffffff; /* Clean white popup */
+  background: #1a1a1a;
   padding: 20px;
   border-radius: 10px;
   max-width: 400px;
   width: 90%;
   text-align: center;
   position: relative;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
 }
 
 .xText {
@@ -180,11 +267,11 @@ nav {
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  color: #555555; /* Medium gray for close icon */
+  color: #ffffff;
 }
 
 .xText:hover {
-  color: #3a3a3a; /* Charcoal gray hover color */
+  color: #0070f3;
 }
 
 /* Pictures Component Styles */
@@ -192,7 +279,7 @@ nav {
   font-size: 1.2rem;
   font-style: italic;
   margin-bottom: 30px;
-  color: #555555; /* Medium gray for descriptive text */
+  color: #ffffff;
 }
 
 /* Location button styles */
@@ -210,18 +297,18 @@ nav {
   font-size: 14px;
   border-radius: 5px;
   cursor: pointer;
-  background: #e0e0e0; /* Light gray background */
-  color: #2c2c2c; /* Neutral dark gray text */
+  background: #1a1a1a;
+  color: #ffffff;
   transition: all 0.3s;
 }
 
 .locationButtonDiv button.active {
-  background: #3a3a3a; /* Charcoal gray for active button */
-  color: #ffffff; /* White text */
+  background: #0070f3;
+  color: #ffffff;
 }
 
 .locationButtonDiv button:hover {
-  background: #5c5c5c; /* Lighter charcoal gray hover color */
+  background: #2d2d2d;
   color: #ffffff;
 }
 
@@ -237,37 +324,209 @@ nav {
 /* Individual image container */
 .imageDiv {
   width: 100%;
-  max-width: 250px; /* Ensures pictures do not get too large */
+  max-width: 250px;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .imageDiv:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Slightly darker hover shadow */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 /* Image styles */
 .photo {
   width: 100%;
   height: auto;
-  object-fit: cover; /* Ensures the picture is scaled without distortion */
+  object-fit: cover;
   border-radius: 10px;
 }
 
+/* Study Abroad Styles */
+.studyAbroad-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.studyAbroad-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.studyAbroad-header h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.studyAbroad-intro {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #ffffff;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.week-label {
+  background-color: #0070f3;
+  color: #ffffff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Gallery Grid Styles */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+.gallery-item {
+  background: #1a1a1a;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-image-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background: #2d2d2d;
+  position: relative;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2d2d2d;
+  color: #ffffff;
+  font-size: 1.1rem;
+  border: 2px dashed #404040;
+}
+
+.gallery-caption {
+  padding: 20px;
+}
+
+.gallery-caption h3 {
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin: 10px 0;
+}
+
+.caption-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #000000;
+  margin: 10px 0;
+}
+
 /* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-description {
+    margin: 0 auto 40px;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+
+  .hero-image {
+    height: 400px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 768px) {
-  .mainPictures {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  .hero-section {
+    padding: 60px 20px;
   }
 
-  .nomadic-text {
-    font-size: 1rem;
+  .name {
+    font-size: 3rem;
   }
 
-  .imageDiv {
-    max-width: 200px;
+  .subtitle {
+    font-size: 1.3rem;
   }
+
+  .hero-description {
+    font-size: 1.1rem;
+  }
+
+  .hero-image {
+    height: 300px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cta-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .projectGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .gallery-image-container {
+    height: 250px;
+  }
+
+  .studyAbroad-header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Remove any other .content or .caption-text color overrides */
+.content, .caption-text {
+  color: #000000 !important;
 }
