@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import JourneyMap from "./JourneyMap";
-import { findFlagUrlByIso2Code } from "country-flags-svg";
 
 class Pictures extends Component {
   state = {
@@ -27,27 +26,6 @@ class Pictures extends Component {
       .catch((error) => {
         console.error("Error fetching image data:", error);
       });
-  };
-
-  getLocationMap = (locationName) => {
-    const stateFlags = {
-      "ALASKA": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Alaska.svg",
-      "KENT ISLAND": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Maryland.svg",
-      "URBANA": "https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg",
-      "PROVIDENCE": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Rhode_Island.svg"
-    };
-
-    const countryCodes = {
-      "PUERTO RICO": "PR",
-      "TOKYO": "JP"
-    };
-
-    if (stateFlags[locationName]) {
-      this.setState({ locationMap: stateFlags[locationName] });
-    } else if (countryCodes[locationName]) {
-      const flagUrl = findFlagUrlByIso2Code(countryCodes[locationName]);
-      this.setState({ locationMap: flagUrl });
-    }
   };
 
   handleLocationClick = (locationName) => {
