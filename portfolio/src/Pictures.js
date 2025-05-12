@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
+import JourneyMap from "./JourneyMap";
+import { findFlagUrlByIso2Code } from "country-flags-svg";
 
 class Pictures extends Component {
   state = {
     location: "ALASKA",
     content: [],
+    locationMap: null
   };
 
   componentDidMount() {
-    this.getLinks("ALASKA");
+    this.getLinks(this.state.location);
+    this.getLocationMap(this.state.location);
   }
 
   getLinks = (locationName) => {
@@ -25,45 +29,45 @@ class Pictures extends Component {
       });
   };
 
-  changeLocation = (locationName) => {
-    this.setState({ location: "loading..." }, () => {
+  getLocationMap = (locationName) => {
+    const stateFlags = {
+      "ALASKA": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Alaska.svg",
+      "KENT ISLAND": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Maryland.svg",
+      "URBANA": "https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg",
+      "PROVIDENCE": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Rhode_Island.svg"
+    };
+
+    const countryCodes = {
+      "PUERTO RICO": "PR",
+      "TOKYO": "JP"
+    };
+
+    if (stateFlags[locationName]) {
+      this.setState({ locationMap: stateFlags[locationName] });
+    } else if (countryCodes[locationName]) {
+      const flagUrl = findFlagUrlByIso2Code(countryCodes[locationName]);
+      this.setState({ locationMap: flagUrl });
+    }
+  };
+
+  handleLocationClick = (locationName) => {
+    this.setState({ location: locationName }, () => {
       this.getLinks(locationName);
+      this.getLocationMap(locationName);
     });
   };
 
   render() {
-    const { location, content } = this.state;
+    const { location, content, locationMap } = this.state;
 
     return (
       <div className="mainDiv">
         <div className="mainMarginDiv">
-        <br />
-
-        <p className="nomadic-text">Living this nomadic lifestyle has been feral, intriguing, and surreal.</p>
-        <br />
-          <br />
-          <br />
-          <br />
-
-          <div className="locationButtonDiv">
-            {["ALASKA", "KENT ISLAND", "URBANA", "TOKYO", "PUERTO RICO"].map((place) => (
-              <button
-                key={place}
-                style={{
-                  background: location === place ? "#000" : "transparent",
-                  color: location === place ? "#FFFFFF" : "#000",
-                }}
-                onClick={() => this.changeLocation(place)}
-              >
-                {place}
-              </button>
-            ))}
-          </div>
-
-          <br />
-          <br />
-          <br />
-
+          <h1 className="pictures-title">My Journey Through Images</h1>
+          <p className="pictures-description">
+            Welcome to my visual journey. As I grew up in each of these places, my love for photography allowed me to capture the essence of diverse cultures and landscapes. Navigate through the locations to see the stories unfold.
+          </p>
+          <JourneyMap interactive onLocationClick={this.handleLocationClick} activeLocation={location} />
           <div className="mainPictures">
             {location !== "loading..." &&
               content.map((picture, index) => (

@@ -39,8 +39,7 @@ const Home = () => {
             <h2 className="subtitle">Software Engineer</h2>
             <p className="hero-description">
               Building innovative solutions that bridge technology and human experience. 
-              From AWS-powered platforms to exploring Chaos Theory, I'm dedicated to 
-              creating meaningful technological solutions that make a difference.
+              
             </p>
           </div>
         </div>

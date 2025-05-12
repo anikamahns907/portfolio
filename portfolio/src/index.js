@@ -5,26 +5,34 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
 import Pictures from './Pictures';
 import Projects from './Projects';
 import Home from './Home';
-// import StudyAbroad from './StudyAbroad';
-
+import About from './About';
+import Footer from './Footer';
+import StudyAbroad from './StudyAbroad';
+import Resume from './Resume';
 
 ReactDOM.render(
   <Router>
     <div>
       <div className="menu-bar">
         <nav>
+          <NavLink exact={true} className="initials-logo" to="/">
+            AM
+          </NavLink>
           <div className="menu">
-            <NavLink exact={true} className="navLinkText hoverGeneral" activeClassName='linkActive' to="/">
-              HOME
-            </NavLink>
             <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/projects">
               PROJECTS
             </NavLink>
-            {/* <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/studyabroad">
+            <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/study-abroad">
               STUDY ABROAD
-            </NavLink> */}
+            </NavLink>
             <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/pictures">
               PICTURES
+            </NavLink>
+            <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/about">
+              ABOUT
+            </NavLink>
+            <NavLink className="navLinkText resume-link" activeClassName='linkActive' to="/resume">
+              RESUME
             </NavLink>
           </div>
         </nav>
@@ -36,13 +44,20 @@ ReactDOM.render(
         <Route path="/projects">
           <Projects />
         </Route>
-        {/* <Route path="/studyabroad">
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/study-abroad">
           <StudyAbroad />
-        </Route> */}
+        </Route>
+        <Route path="/resume">
+          <Resume />
+        </Route>
         <Route path="/">
           <Home />
         </Route>
       </Switch>
+      <Footer />
     </div>
   </Router>,
   document.getElementById('root')
