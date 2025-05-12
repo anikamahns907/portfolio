@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import Pictures from './Pictures';
 import Projects from './Projects';
 import Home from './Home';
@@ -37,26 +37,13 @@ ReactDOM.render(
           </div>
         </nav>
       </div>
-      <Switch>
-        <Route path="/pictures">
-          <Pictures />
-        </Route>
-        <Route path="/projects">
-          <Projects />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/study-abroad">
-          <StudyAbroad />
-        </Route>
-        <Route path="/resume">
-          <Resume />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/resume" element={<Resume />} />
+        <Route path="/study-abroad" element={<StudyAbroad />} />
+      </Routes>
       <Footer />
     </div>
   </Router>,
