@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="contact-links">
             <div className="email-container">
               <a 
-                href="#" 
+                href="mailto:anika.mahns@gmail.com" 
                 className="contact-link"
                 onClick={(e) => {
                   e.preventDefault();

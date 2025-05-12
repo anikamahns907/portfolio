@@ -5,13 +5,11 @@ import JourneyMap from "./JourneyMap";
 class Pictures extends Component {
   state = {
     location: "ALASKA",
-    content: [],
-    locationMap: null
+    content: []
   };
 
   componentDidMount() {
     this.getLinks(this.state.location);
-    this.getLocationMap(this.state.location);
   }
 
   getLinks = (locationName) => {
@@ -28,30 +26,14 @@ class Pictures extends Component {
       });
   };
 
-  getLocationMap = (locationName) => {
-    const stateFlags = {
-      "ALASKA": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Alaska.svg",
-      "KENT ISLAND": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Maryland.svg",
-      "URBANA": "https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg",
-      "PROVIDENCE": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Rhode_Island.svg",
-      "PUERTO RICO": "https://upload.wikimedia.org/wikipedia/commons/2/28/Flag_of_Puerto_Rico.svg",
-      "TOKYO": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Japan.svg"
-    };
-
-    if (stateFlags[locationName]) {
-      this.setState({ locationMap: stateFlags[locationName] });
-    }
-  };
-
   handleLocationClick = (locationName) => {
     this.setState({ location: locationName }, () => {
       this.getLinks(locationName);
-      this.getLocationMap(locationName);
     });
   };
 
   render() {
-    const { location, content, locationMap } = this.state;
+    const { location, content } = this.state;
 
     return (
       <div className="mainDiv">

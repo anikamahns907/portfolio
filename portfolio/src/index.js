@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
-import Pictures from './Pictures';
 import Projects from './Projects';
 import Home from './Home';
 import About from './About';
 import Footer from './Footer';
 import StudyAbroad from './StudyAbroad';
 import Resume from './Resume';
+import Pictures from './Pictures';
 
 ReactDOM.render(
   <Router>
@@ -43,6 +43,7 @@ ReactDOM.render(
         <Route path="/projects" element={<Projects />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/study-abroad" element={<StudyAbroad />} />
+        <Route path="/pictures" element={<Pictures />} />
       </Routes>
       <Footer />
     </div>

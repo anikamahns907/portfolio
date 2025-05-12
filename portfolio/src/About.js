@@ -3,15 +3,6 @@ import Typewriter from 'typewriter-effect';
 import brownLogo from './brown-logo.jpg'; // Ensure this is the new Brown logo
 import './index.css';
 
-const placesLived = [
-  { key: 'ALASKA', label: 'Alaska', years: 'Born', description: 'Where my journey began.' },
-  { key: 'KENT ISLAND', label: 'Maryland', years: 'Childhood', description: 'Grew up surrounded by water and nature.' },
-  { key: 'PUERTO RICO', label: 'Puerto Rico', years: 'Adventure', description: 'Immersed in vibrant culture and language.' },
-  { key: 'TOKYO', label: 'Tokyo', years: 'Exploration', description: 'Explored technology and tradition in Japan.' },
-  { key: 'URBANA', label: 'Los Angeles', years: 'Growth', description: 'Experienced the energy of the West Coast.' },
-  { key: 'PROVIDENCE', label: 'Providence', years: 'Present', description: 'Currently studying at Brown University.' },
-];
-
 const About = () => {
   const aboutRef = useRef(null);
 
