@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 
-const resumeUrl = "/RESUME--Anika Mahns.pdf";
+const resumeUrl = "/Resume.pdf";
 
 const Resume = () => {
   return (
