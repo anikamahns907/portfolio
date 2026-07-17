@@ -63,13 +63,18 @@ const StudyAbroad = () => {
             <p className="journey-empty">No photos yet.</p>
           ) : (
             <ul className="journey-gallery">
-              {content.map((picture, index) => (
-                <li key={`studyabroad-${index}`} className="journey-gallery-item">
+              {content.map((picture) => (
+                <li key={picture} className="journey-gallery-item">
                   <img
                     src={picture}
                     alt=""
                     className="journey-gallery-image"
                     loading="lazy"
+                    onError={() => {
+                      setContent((prev) =>
+                        prev.filter((url) => url !== picture)
+                      );
+                    }}
                   />
                 </li>
               ))}

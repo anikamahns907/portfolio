@@ -22,53 +22,60 @@ const About = () => {
 
       <div className="about-layout">
         <header className="about-lead">
-          <p className="about-kicker">01 / Profile</p>
           <h1 className="about-heading">About</h1>
         </header>
 
         <section className="about-profile" aria-label="Profile">
+          <aside className="about-side">
+            <figure className="about-portrait">
+              <img
+                src="/about/portrait.png"
+                alt="Anika Mahns"
+                className="about-portrait-image"
+              />
+            </figure>
+            <div className="about-brown-row">
+              <img
+                src={brownLogo}
+                alt="Brown University"
+                className="about-brown-logo"
+              />
+              <p className="about-brown-text">Brown University</p>
+            </div>
+          </aside>
+
           <div className="about-profile-main">
             <p className="about-name">Anika Mahns</p>
             <p className="about-degree">
-              BA Computer Science, Brown University · May 2026
+              BA Computer Science · May 2026
+            </p>
+            <p className="about-role">
+              Incoming Software Engineer at Fidelity Investments
             </p>
             <p className="about-blurb">
               I build software, ship projects, and like hard problems. Outside
               of that: photos, origami, music, rock climbing, and running.
             </p>
-
-            <ul className="about-signals" aria-label="Focus">
-              <li>build</li>
-              <li>ship</li>
-              <li>solve</li>
-            </ul>
-
-            <a className="about-email" href="mailto:anika_mahns@brown.edu">
-              anika_mahns@brown.edu
-            </a>
-          </div>
-
-          <aside className="about-side">
-            <div className="about-side-card">
-              <img
-                src={brownLogo}
-                alt="Brown University"
-                className="about-side-logo"
-              />
-              <p className="about-side-label">Brown University</p>
-              <p className="about-side-copy">
-                Graduated May 2026. Always building.
-              </p>
-              <a className="about-side-cta" href="mailto:anika_mahns@brown.edu">
-                Contact
-                <span aria-hidden="true">→</span>
+            <div className="about-emails">
+              <a className="about-email" href="mailto:anika.mahns@gmail.com">
+                anika.mahns@gmail.com
+              </a>
+              <a
+                className="about-email"
+                href="mailto:anika_mahns@alumni.brown.edu"
+              >
+                anika_mahns@alumni.brown.edu
               </a>
             </div>
-          </aside>
+          </div>
         </section>
 
         <section className="about-life" aria-label="Outdoors">
-          <p className="about-kicker">02 / Outdoors</p>
+          <h2 className="about-life-title">Outdoors</h2>
+          <p className="about-life-intro">
+            Physical movement has always given me mental clarity and helps me
+            continue to challenge myself.
+          </p>
           <div className="about-moments">
             <figure className="about-moment">
               <img
@@ -77,7 +84,7 @@ const About = () => {
                 className="about-moment-image about-moment-image--tall"
               />
               <figcaption className="about-moment-caption">
-                rock climbing
+                Brown University competitive climbing team
               </figcaption>
             </figure>
             <figure className="about-moment">
@@ -102,8 +109,7 @@ const About = () => {
             </figure>
           </div>
           <p className="about-race-note">
-            I have run two half marathons: Newport and Providence. My PR is
-            1:46:09 at Providence.
+            Half marathon PR: 1:46:09.
           </p>
         </section>
       </div>

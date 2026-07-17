@@ -68,6 +68,11 @@ const Pictures = () => {
               activeLocation={location}
             />
             <p className="journey-active-place">{activeLabel}</p>
+            {location === "RHODE ISLAND" && (
+              <p className="journey-place-note">
+                Brown has become my forever home.
+              </p>
+            )}
           </div>
 
           {loading ? (
@@ -76,13 +81,18 @@ const Pictures = () => {
             <p className="journey-empty">No photos for this place yet.</p>
           ) : (
             <ul className="journey-gallery">
-              {content.map((picture, index) => (
-                <li key={`${location}-${index}`} className="journey-gallery-item">
+              {content.map((picture) => (
+                <li key={picture} className="journey-gallery-item">
                   <img
                     src={picture}
                     alt=""
                     className="journey-gallery-image"
                     loading="lazy"
+                    onError={() => {
+                      setContent((prev) =>
+                        prev.filter((url) => url !== picture)
+                      );
+                    }}
                   />
                 </li>
               ))}

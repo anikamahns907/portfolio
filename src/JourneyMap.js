@@ -7,7 +7,7 @@ export const JOURNEY_LOCATIONS = [
   { key: "PUERTO RICO", label: "Puerto Rico" },
   { key: "TOKYO", label: "Tokyo, Japan" },
   { key: "URBANA", label: "Urbana, Maryland" },
-  { key: "LA", label: "Los Angeles, California" },
+  { key: "LA", label: "California" },
   { key: "RHODE ISLAND", label: "Providence, Rhode Island" },
 ];
 

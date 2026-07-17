@@ -161,7 +161,7 @@ const DropLightbox = ({ drop, onClose }) => {
 
 const TheMahnsta = () => {
   const [locations, setLocations] = useState([]);
-  const [view, setView] = useState("map");
+  const [view, setView] = useState("gallery");
   const [selected, setSelected] = useState(null);
   const [regionId, setRegionId] = useState("nyc");
   const [loading, setLoading] = useState(true);

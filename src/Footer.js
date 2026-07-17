@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';
+import ShurikenMark from './ShurikenMark';
 
 const Footer = () => {
   const [showEmails, setShowEmails] = useState(false);
@@ -28,7 +29,7 @@ const Footer = () => {
               {showEmails && (
                 <div className="email-dropdown">
                   <a href="mailto:anika.mahns@gmail.com" className="contact-link">anika.mahns@gmail.com</a>
-                  <a href="mailto:anika_mahns@brown.edu" className="contact-link">anika_mahns@brown.edu</a>
+                  <a href="mailto:anika_mahns@alumni.brown.edu" className="contact-link">anika_mahns@alumni.brown.edu</a>
                 </div>
               )}
             </div>
@@ -45,14 +46,14 @@ const Footer = () => {
         </div>
         <div className="footer-bottom">
           <div className="footer-quote">
-            <span className="quote-mark">"</span>
-            <p>Rendering into reality.</p>
-            <span className="quote-mark">"</span>
+            <span className="footer-mark" aria-hidden="true">
+              <ShurikenMark />
+            </span>
           </div>
-          <div className="footer-decoration">
-            <span className="decoration-dot">•</span>
-            <span className="decoration-dot">•</span>
-            <span className="decoration-dot">•</span>
+          <div className="footer-decoration" aria-hidden="true">
+            <span className="decoration-dot" />
+            <span className="decoration-dot" />
+            <span className="decoration-dot" />
           </div>
         </div>
       </div>

@@ -18,6 +18,7 @@ class Project extends React.Component {
 
     return (
       <div className="mainDiv">
+        <h1 className="projects-heading">Projects</h1>
         <div className="projects-status">
           <p>Updating.</p>
           <a

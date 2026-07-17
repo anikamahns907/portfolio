@@ -19,45 +19,72 @@ const Home = () => {
       <div className="home-geometry" aria-hidden="true">
         <svg
           className="home-geo-svg"
-          viewBox="0 0 1200 800"
+          viewBox="0 0 1440 900"
           preserveAspectRatio="xMidYMid slice"
         >
+          <defs>
+            <linearGradient id="home-fade-h" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#121417" stopOpacity="0" />
+              <stop offset="40%" stopColor="#121417" stopOpacity="0.22" />
+              <stop offset="100%" stopColor="#121417" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="home-fade-soft" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#121417" stopOpacity="0" />
+              <stop offset="50%" stopColor="#121417" stopOpacity="0.12" />
+              <stop offset="100%" stopColor="#121417" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+
+          {/* Quiet horizon rules */}
+          <g className="home-rules">
+            <line className="home-rule" x1="720" y1="200" x2="1380" y2="200" />
+            <line className="home-rule" x1="720" y1="700" x2="1380" y2="700" />
+            <line className="home-rule home-rule--v" x1="1080" y1="120" x2="1080" y2="780" />
+          </g>
+
+          {/* Slow-rotating orbital system */}
+          <g className="home-orbit-system">
+            <circle className="home-orbit home-orbit--a" cx="1080" cy="450" r="140" />
+            <circle className="home-orbit home-orbit--b" cx="1080" cy="450" r="230" />
+            <circle className="home-orbit home-orbit--c" cx="1080" cy="450" r="330" />
+            <line className="home-orbit-arm" x1="1080" y1="450" x2="1080" y2="120" />
+            <circle className="home-orbit-dot" cx="1080" cy="120" r="2" />
+            <circle className="home-orbit-dot home-orbit-dot--b" cx="1310" cy="450" r="1.6" />
+            <circle className="home-orbit-dot home-orbit-dot--c" cx="1080" cy="780" r="1.6" />
+          </g>
+
+          {/* One refined sweep */}
           <path
-            className="home-float-line home-float-line--a"
-            d="M -40 180 C 180 80, 360 280, 560 160 S 920 60, 1240 200"
+            className="home-sweep"
+            stroke="url(#home-fade-h)"
+            d="M 680 320 C 860 250, 1000 250, 1140 340 C 1260 410, 1340 400, 1460 330"
           />
           <path
-            className="home-float-line home-float-line--b"
-            d="M -20 360 C 220 260, 400 460, 640 340 S 980 240, 1260 380"
+            className="home-sweep home-sweep--soft"
+            stroke="url(#home-fade-soft)"
+            d="M 700 580 C 880 500, 1040 660, 1200 580 C 1320 520, 1380 540, 1460 600"
           />
-          <path
-            className="home-float-line home-float-line--c"
-            d="M -60 540 C 160 440, 380 640, 620 520 S 940 420, 1280 560"
-          />
-          <path
-            className="home-float-line home-float-line--d"
-            d="M 80 -20 C 200 140, 120 320, 280 480 S 420 700, 560 820"
-          />
-          <path
-            className="home-float-line home-float-line--e"
-            d="M 980 -40 C 1080 120, 1020 300, 1140 460 S 1180 680, 1220 840"
-          />
+
+          <circle className="home-focus" cx="1080" cy="450" r="2.2" />
         </svg>
       </div>
 
       <section className="home-hero">
-        <div className="home-hero-top">
-          <p className="home-kicker">Software Engineer</p>
-          <span className="home-mark" aria-hidden="true">
-            <ShurikenMark />
-          </span>
+        <div className="home-hero-rail" aria-hidden="true" />
+        <div className="home-hero-copy">
+          <div className="home-hero-top">
+            <p className="home-kicker">Software Engineer</p>
+            <span className="home-mark" aria-hidden="true">
+              <ShurikenMark />
+            </span>
+          </div>
+
+          <h1 className="home-name">Anika Mahns</h1>
+          <div className="home-name-rule" aria-hidden="true" />
+
+          <p className="home-brown">Brown University 2026 · Computer Science BA</p>
+          <p className="home-tagline">Climb hard projects.</p>
         </div>
-
-        <h1 className="home-name">Anika Mahns</h1>
-
-        <p className="home-line">
-          Brown CS. I build software, climb hard problems, and keep moving.
-        </p>
       </section>
     </div>
   );
