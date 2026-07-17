@@ -18,6 +18,16 @@ class Project extends React.Component {
 
     return (
       <div className="mainDiv">
+        <div className="projects-status">
+          <p>Updating.</p>
+          <a
+            href="https://github.com/anikamahns907"
+            target="_blank"
+            rel="noreferrer"
+          >
+            See my GitHub
+          </a>
+        </div>
         <div className="projectGrid">
           {projectDescriptions.map((project, index) => (
             <div

@@ -1,138 +1,114 @@
-import React, { useEffect, useRef } from 'react';
-import Typewriter from 'typewriter-effect';
-import brownLogo from './brown-logo.jpg'; // Ensure this is the new Brown logo
-import './index.css';
+import React, { useEffect, useRef } from "react";
+import brownLogo from "./brown-logo.jpg";
+import "./index.css";
 
 const About = () => {
-  const aboutRef = useRef(null);
+  const shellRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
+    const node = shellRef.current;
+    if (!node) return;
 
-    const elements = aboutRef.current.querySelectorAll('.about-brief-row, .about-interests');
-    elements.forEach(el => observer.observe(el));
+    const frame = requestAnimationFrame(() => {
+      node.classList.add("is-ready");
+    });
 
-    return () => {
-      elements.forEach(el => observer.unobserve(el));
-    };
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   return (
-    <div className="mainDiv">
-      <div className="decor-shape"></div>
-      <div className="about-section">
-        <div className="about-content" ref={aboutRef}>
-          <div className="about-header">
-            <h1 className="about-title">About Me</h1>
+    <div className="about-shell" ref={shellRef}>
+      <div className="about-atmosphere" aria-hidden="true" />
+
+      <div className="about-layout">
+        <header className="about-lead">
+          <p className="about-kicker">01 / Profile</p>
+          <h1 className="about-heading">About</h1>
+        </header>
+
+        <section className="about-profile" aria-label="Profile">
+          <div className="about-profile-main">
+            <p className="about-name">Anika Mahns</p>
+            <p className="about-degree">
+              BA Computer Science, Brown University · May 2026
+            </p>
+            <p className="about-blurb">
+              I build software, ship projects, and like hard problems. Outside
+              of that: photos, origami, music, rock climbing, and running.
+            </p>
+
+            <ul className="about-signals" aria-label="Focus">
+              <li>build</li>
+              <li>ship</li>
+              <li>solve</li>
+            </ul>
+
+            <a className="about-email" href="mailto:anika_mahns@brown.edu">
+              anika_mahns@brown.edu
+            </a>
           </div>
 
-          <div className="about-brief-row">
-            <div className="about-brief-text">
-              <div className="typewriter-intro">
-                <Typewriter
-                  options={{
-                    strings: [
-                      "Software Engineer at Brown University",
-                      "Full-stack Developer",
-                      "Problem Solver",
-                      "Technical Innovator"
-                    ],
-                    autoStart: true,
-                    loop: true,
-                    delay: 40,
-                    deleteSpeed: 30,
-                    pauseFor: 1800
-                  }}
-                />
-              </div>
-              <p className="about-intro">
-                I'm a Software Engineer and Computer Scientist currently studying at Brown University, passionate about building impactful technology solutions. 
+          <aside className="about-side">
+            <div className="about-side-card">
+              <img
+                src={brownLogo}
+                alt="Brown University"
+                className="about-side-logo"
+              />
+              <p className="about-side-label">Brown University</p>
+              <p className="about-side-copy">
+                Graduated May 2026. Always building.
               </p>
-              <blockquote className="quote-box">
-                Building technology that makes a difference.
-              </blockquote>
-              <p className="about-intro">
-                Currently working on innovative projects that combine technical excellence with practical applications. I'm particularly interested in developing scalable solutions and creating intuitive user experiences.
-              </p>
-              <p className="about-intro">
-                <a href="mailto:anika_mahns@brown.edu" style={{ color: '#000', textDecoration: 'underline' }}>→ anika_mahns@brown.edu</a>
-              </p>
+              <a className="about-side-cta" href="mailto:anika_mahns@brown.edu">
+                Contact
+                <span aria-hidden="true">→</span>
+              </a>
             </div>
-            <div className="brown-logo-container">
-              <img src={brownLogo} alt="Brown University Logo" className="brown-logo" />
-            </div>
-          </div>
+          </aside>
+        </section>
 
-          <div className="about-interests">
-            <h2>Beyond the Screen</h2>
-            <div className="interests-grid">
-              <div className="interest-card">
-                <h3>
-                  <i className="fas fa-music"></i> Music Vibes
-                </h3>
-                <p>Currently obsessed with <a href="https://open.spotify.com/user/anikaaaa.m?si=209f57c4f145429a" target="_blank" rel="noopener noreferrer" style={{ color: '#000', textDecoration: 'underline' }}>Spotify</a> playlists that mix indie rock with electronic beats. Always on the hunt for new artists!</p>
-              </div>
-              <div className="interest-card">
-                <h3>
-                  <i className="fas fa-camera"></i> Photography
-                </h3>
-                <p>Capturing moments through my lens, from urban landscapes to nature's beauty. Check out my <a href="/pictures" style={{ color: '#000', textDecoration: 'underline' }}>travel gallery</a>!</p>
-              </div>
-              <div className="interest-card">
-                <h3>
-                  <i className="fas fa-palette"></i> Art & Origami
-                </h3>
-                <p>Whether it's folding cranes, or fine line pen drawings, I love creating artistic things. It grounds me.</p>
-              </div>
-              <div className="interest-card">
-                <h3>
-                  <i className="fas fa-running"></i> Movement
-                </h3>
-                <p>Staying active through strength training, running, and climbing. Whether it's lifting weights, hitting the trails, or scaling walls, I love challenging my body in different ways.</p>
-              </div>
-              <div className="interest-card">
-                <h3>
-                  <i className="fas fa-lightbulb"></i> Scrappy Creator
-                </h3>
-                <p>I love building and creating things from scratch. Whether it's coding, art, or solving problems, I'm always up for the challenge of making something new.</p>
-              </div>
-            </div>
+        <section className="about-life" aria-label="Outdoors">
+          <p className="about-kicker">02 / Outdoors</p>
+          <div className="about-moments">
+            <figure className="about-moment">
+              <img
+                src="/about/climbing.png"
+                alt="Rock climbing outdoors"
+                className="about-moment-image about-moment-image--tall"
+              />
+              <figcaption className="about-moment-caption">
+                rock climbing
+              </figcaption>
+            </figure>
+            <figure className="about-moment">
+              <img
+                src="/about/newport-half.png"
+                alt="Finishing the Newport Half Marathon"
+                className="about-moment-image"
+              />
+              <figcaption className="about-moment-caption">
+                Newport Half Marathon
+              </figcaption>
+            </figure>
+            <figure className="about-moment">
+              <img
+                src="/about/providence-half.png"
+                alt="Crossing the finish line at the Providence Half Marathon, PR 1:46:09"
+                className="about-moment-image"
+              />
+              <figcaption className="about-moment-caption">
+                Providence Half · PR 1:46:09
+              </figcaption>
+            </figure>
           </div>
-
-          <div className="about-interests" style={{ marginTop: '80px' }}>
-            <h2>Areas of Expertise</h2>
-            <div className="interests-grid">
-              <div className="interest-card">
-                <h3>Technical Expertise</h3>
-                <p>Full-stack development with React.js, JavaScript, and Vue.js. Experience with TypeScript, Node.js, and RESTful APIs. Proficient in database management and microservices architecture.</p>
-              </div>
-              <div className="interest-card">
-                <h3>Industry Experience</h3>
-                <p>Summer internship at Fidelity Investments, working on the Workforce Connect platform. Led frontend development, API integration, and enhanced UI/UX using Vue.js and TypeScript.</p>
-              </div>
-              <div className="interest-card">
-                <h3>Problem Solving</h3>
-                <p>Developed solutions ranging from AWS-powered platforms to Chaos Theory applications. Focus on creating scalable, maintainable systems with robust testing and quality assurance.</p>
-              </div>
-              <div className="interest-card">
-                <h3>Collaboration</h3>
-                <p>Experienced in Agile methodologies, team collaboration, and cross-functional communication. Skilled at bridging technical and business requirements to deliver impactful solutions.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a href="mailto:anika_mahns@brown.edu" className="sticky-contact">
-          Let's Connect
-        </a>
+          <p className="about-race-note">
+            I have run two half marathons: Newport and Providence. My PR is
+            1:46:09 at Providence.
+          </p>
+        </section>
       </div>
     </div>
   );
 };
 
-export default About; 
+export default About;

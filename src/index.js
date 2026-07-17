@@ -9,6 +9,7 @@ import Footer from './Footer';
 import StudyAbroad from './StudyAbroad';
 import Resume from './Resume';
 import Pictures from './Pictures';
+import TheMahnsta from './TheMahnsta';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -58,20 +59,23 @@ const Navigation = () => {
           <span className={isMenuOpen ? 'hamburger-line open' : 'hamburger-line'}></span>
         </button>
         <div className={`menu ${isMenuOpen ? 'menu-open' : ''}`}>
-          <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/projects" onClick={closeMenu}>
-            PROJECTS
-          </NavLink>
-          <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/study-abroad" onClick={closeMenu}>
-            STUDY ABROAD
-          </NavLink>
-          <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/pictures" onClick={closeMenu}>
-            PICTURES
-          </NavLink>
           <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/about" onClick={closeMenu}>
             ABOUT
           </NavLink>
+          <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/pictures" onClick={closeMenu}>
+            MY NOMADIC JOURNEY
+          </NavLink>
+          <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/themahnsta" onClick={closeMenu}>
+            @THEMAHNSTA
+          </NavLink>
+          <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/projects" onClick={closeMenu}>
+            PROJECTS
+          </NavLink>
           <NavLink className="navLinkText resume-link" activeClassName='linkActive' to="/resume" onClick={closeMenu}>
             RESUME
+          </NavLink>
+          <NavLink className="navLinkText hoverGeneral" activeClassName='linkActive' to="/study-abroad" onClick={closeMenu}>
+            STUDY ABROAD
           </NavLink>
         </div>
       </nav>
@@ -90,6 +94,7 @@ ReactDOM.render(
         <Route path="/resume" element={<Resume />} />
         <Route path="/study-abroad" element={<StudyAbroad />} />
         <Route path="/pictures" element={<Pictures />} />
+        <Route path="/themahnsta" element={<TheMahnsta />} />
       </Routes>
       <Footer />
     </div>
