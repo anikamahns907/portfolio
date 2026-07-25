@@ -1,5 +1,6 @@
 {
   "instagramUrl": "https://www.instagram.com/themahnsta/",
   "instagramHandle": "@themahnsta",
-  "totalDrops": 72
+  "totalDrops": 95,
+  "totalDropsNote": "Fallback for Instagram post count. Live count is fetched from /api/instagram-count on Netlify."
 }

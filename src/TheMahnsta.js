@@ -10,7 +10,7 @@ import "./index.css";
 const NYC_CENTER = [40.728, -73.995];
 const DEFAULT_ZOOM = 12;
 const INSTAGRAM_URL = themahnstaMeta.instagramUrl;
-const TOTAL_DROPS = themahnstaMeta.totalDrops;
+const FALLBACK_DROPS = themahnstaMeta.totalDrops;
 const INSTAGRAM_HANDLE = themahnstaMeta.instagramHandle;
 
 const REGIONS = [
@@ -166,6 +166,7 @@ const TheMahnsta = () => {
   const [regionId, setRegionId] = useState("nyc");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [totalDrops, setTotalDrops] = useState(FALLBACK_DROPS);
 
   useEffect(() => {
     let cancelled = false;
@@ -185,6 +186,27 @@ const TheMahnsta = () => {
         if (cancelled) return;
         setError(err.message || "Could not load drop locations.");
         setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Keep drop count in sync with Instagram post count.
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch("/api/instagram-count")
+      .then((response) => (response.ok ? response.json() : null))
+      .then((data) => {
+        if (cancelled) return;
+        if (data && typeof data.count === "number" && data.count > 0) {
+          setTotalDrops(data.count);
+        }
+      })
+      .catch(() => {
+        // Fall back to themahnstaMeta.totalDrops.
       });
 
     return () => {
@@ -217,7 +239,7 @@ const TheMahnsta = () => {
           <span className="themahnsta-brand-name">MAHNSTA</span>
         </h1>
         <div className="themahnsta-story">
-          <p>A flow state catalyst.</p>
+          <p>One of my flow state catalysts.</p>
           <p>
             I began making these and handing them out. Handing out even a small
             smile is always worth it. I decided to continue the effect.
@@ -261,7 +283,7 @@ const TheMahnsta = () => {
         <div className="themahnsta-hero-meta">
           <p className="themahnsta-status">
             <span className="themahnsta-count">
-              <ShurikenMark /> {TOTAL_DROPS} drops
+              <ShurikenMark /> {totalDrops} drops
             </span>
             {!loading && !error && (
               <span className="themahnsta-loaded">
