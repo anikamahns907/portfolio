@@ -50,7 +50,7 @@ const About = () => {
               BA Computer Science · May 2026
             </p>
             <p className="about-role">
-              Incoming Software Engineer at Fidelity Investments
+              Associate Software Engineer at Fidelity Investments
             </p>
             <p className="about-blurb">
               I build software, ship projects, and like hard problems. Outside
