@@ -247,8 +247,6 @@ const TheMahnsta = () => {
           <p>
             Shurikans represent{" "}
             <em className="themahnsta-story-emphasis">discipline</em> and{" "}
-            <em className="themahnsta-story-emphasis">precision</em>. We embody
-            those qualities.
           </p>
           <p className="themahnsta-story-tag">#SUREICAN</p>
         </div>
