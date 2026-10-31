@@ -1,7 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { MapContainer, TileLayer, Marker, ZoomControl, useMap } from "react-leaflet";
+import { MapContainer, Marker, ZoomControl, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import "maplibre-gl/dist/maplibre-gl.css";
+import "@maplibre/maplibre-gl-leaflet";
 import resolveThemahnstaDrops from "./utils/resolveThemahnstaDrops";
 import themahnstaMeta from "./data/themahnstaMeta.json";
 import ShurikenMark, { SHURIKEN_SVG } from "./ShurikenMark";
@@ -9,9 +11,15 @@ import "./index.css";
 
 const NYC_CENTER = [40.728, -73.995];
 const DEFAULT_ZOOM = 12;
+const MAX_ZOOM = 18;
 const INSTAGRAM_URL = themahnstaMeta.instagramUrl;
 const FALLBACK_DROPS = themahnstaMeta.totalDrops;
 const INSTAGRAM_HANDLE = themahnstaMeta.instagramHandle;
+const BASEMAP_STYLE_URL = "https://tiles.openfreemap.org/styles/liberty";
+const BASEMAP_ATTRIBUTION =
+  '&copy; <a href="https://openfreemap.org" target="_blank" rel="noopener noreferrer">OpenFreeMap</a> ' +
+  '&copy; <a href="https://www.openmaptiles.org/" target="_blank" rel="noopener noreferrer">OpenMapTiles</a> ' +
+  '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors';
 
 const REGIONS = [
   {
@@ -63,6 +71,25 @@ const flyToLocations = (map, locations, { maxZoom = 14 } = {}) => {
     easeLinearity: 0.25,
   });
 };
+
+const MapLibreLayer = () => {
+  const map = useMap();
+
+  useEffect(() => {
+    const layer = L.maplibreGL({
+      style: BASEMAP_STYLE_URL,
+      attributionControl: { customAttribution: BASEMAP_ATTRIBUTION },
+    }).addTo(map);
+
+    return () => {
+      map.removeLayer(layer);
+    };
+  }, [map]);
+
+  return null;
+};
+
+const isActivationKey = (event) => event.key === "Enter" || event.key === " ";
 
 const MapCamera = ({ locations, regionId }) => {
   const map = useMap();
@@ -244,10 +271,6 @@ const TheMahnsta = () => {
             I began making these and handing them out. Handing out even a small
             smile is always worth it. I decided to continue the effect.
           </p>
-          <p>
-            Shurikans represent{" "}
-            <em className="themahnsta-story-emphasis">discipline</em> and{" "}
-          </p>
           <p className="themahnsta-story-tag">#SUREICAN</p>
         </div>
         <div className="themahnsta-view-toggle" role="tablist" aria-label="View mode">
@@ -361,6 +384,7 @@ const TheMahnsta = () => {
               <MapContainer
                 center={NYC_CENTER}
                 zoom={DEFAULT_ZOOM}
+                maxZoom={MAX_ZOOM}
                 className="themahnsta-map"
                 scrollWheelZoom
                 zoomControl={false}
@@ -368,10 +392,7 @@ const TheMahnsta = () => {
                 zoomDelta={0.5}
                 wheelPxPerZoomLevel={90}
               >
-                <TileLayer
-                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-                  url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-                />
+                <MapLibreLayer />
                 <ZoomControl position="topright" />
                 <MapCamera locations={locations} regionId={regionId} />
                 {locations.map((loc) => (
@@ -379,8 +400,17 @@ const TheMahnsta = () => {
                     key={loc.id}
                     position={[loc.lat, loc.lng]}
                     icon={createShurikenIcon(selected?.id === loc.id)}
+                    title={`Open drop at ${loc.name}`}
+                    alt={`Open drop at ${loc.name}`}
+                    keyboard
                     eventHandlers={{
                       click: () => setSelected(loc),
+                      // Leaflet only maps Enter to popups, so handle it here.
+                      keypress: (event) => {
+                        if (!isActivationKey(event.originalEvent)) return;
+                        event.originalEvent.preventDefault();
+                        setSelected(loc);
+                      },
                     }}
                   />
                 ))}

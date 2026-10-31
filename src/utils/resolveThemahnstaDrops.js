@@ -7,6 +7,31 @@ const slugify = (value) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 
+// Drops at the same spot would hide each other, so place them on a small circle.
+const OVERLAP_SPREAD_DEGREES = 0.0004;
+
+const spreadOverlappingDrops = (drops) => {
+  const groups = new Map();
+  drops.forEach((drop) => {
+    const key = `${drop.lat},${drop.lng}`;
+    groups.set(key, [...(groups.get(key) || []), drop]);
+  });
+
+  return drops.map((drop) => {
+    const group = groups.get(`${drop.lat},${drop.lng}`);
+    if (group.length < 2) return drop;
+
+    const angle = (2 * Math.PI * group.indexOf(drop)) / group.length;
+    // Longitude degrees shrink with latitude; scale so the circle stays round.
+    const lngScale = 1 / Math.cos((drop.lat * Math.PI) / 180);
+    return {
+      ...drop,
+      lat: drop.lat + OVERLAP_SPREAD_DEGREES * Math.sin(angle),
+      lng: drop.lng + OVERLAP_SPREAD_DEGREES * Math.cos(angle) * lngScale,
+    };
+  });
+};
+
 const resolveThemahnstaDrops = async () => {
   const resolved = [];
 
@@ -51,7 +76,9 @@ const resolveThemahnstaDrops = async () => {
     });
   }
 
-  return resolved.sort((a, b) => a.sortOrder - b.sortOrder);
+  return spreadOverlappingDrops(resolved).sort(
+    (a, b) => a.sortOrder - b.sortOrder
+  );
 };
 
 export default resolveThemahnstaDrops;
