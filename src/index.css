@@ -3660,6 +3660,11 @@ button.journey-place.is-active:hover,
   cursor: grabbing;
 }
 
+/* Mute the basemap colours so the red shurikens stay the focus. */
+.themahnsta-map .leaflet-gl-layer {
+  filter: saturate(0.35) brightness(1.04);
+}
+
 .themahnsta-map .leaflet-control-attribution {
   background: rgba(255, 255, 255, 0.85) !important;
   color: rgba(17, 19, 24, 0.38);
